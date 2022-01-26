@@ -1,0 +1,10 @@
+version: '2'
+services:
+  flask:
+     image: sample-flask-api 
+     ports: 
+       - 8001:8001
+  nginx:
+     image: nginx
+     ports:
+       - 8080:80
