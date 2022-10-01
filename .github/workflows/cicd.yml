@@ -16,7 +16,6 @@ jobs:
 
     # 遠端部署
     - name: CD
-      uses: appleboy/ssh-action@master
       run:
         cd ~/code/docker-sample
         git pull https://github.com/w110056005/docker-sample.git
