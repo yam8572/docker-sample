@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD . /app
 
-EXPOSE 8001
+EXPOSE 8000
 
 RUN python -m pip install -r requirements.txt
 
