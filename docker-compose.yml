@@ -1,10 +1,15 @@
 version: '2'
 services:
   flask:
-     image: sample-flask-api 
-     expose:
-      - 8000
+    build: ./flask  
+    container_name: flask-api
+    # restart: always
+    expose:
+    - 8000
   nginx:
-     image: nginx
-     ports:
-       - 80:80
+    build: ./nginx
+    container_name: nginx_flask
+    ports:
+      - 8000:80
+    depends_on:
+      - flask
