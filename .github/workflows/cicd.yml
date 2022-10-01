@@ -18,15 +18,14 @@ jobs:
     - name: route
       run:
         cd ~/code
-    - name: new folder
+    - name: clone
       run:
-        mkdir flask-api
+        git clone https://github.com/w110056005/docker-sample.git
     - name: route
       run:
         cd ./flask-api
-    - name: execute cd
+    - name: docker build & compose
       run:
-        git clone https://github.com/w110056005/docker-sample.git \
         docker image build -t sample-flask-api . \
         docker-compose up -d
     - name: route
