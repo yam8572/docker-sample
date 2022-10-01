@@ -23,7 +23,7 @@ jobs:
         git clone https://github.com/w110056005/docker-sample.git
     - name: route
       run:
-        cd ./flask-api
+        cd ./docker-sample
     - name: docker build & compose
       run:
         docker image build -t sample-flask-api . \
