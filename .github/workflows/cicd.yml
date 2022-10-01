@@ -24,9 +24,6 @@ jobs:
     - name: route
       run:
         cd ./docker-sample
-    - name: docker build
-      run:
-        docker image build -t sample-flask-api .
     - name: docker compose
       run:
         docker-compose up -d
