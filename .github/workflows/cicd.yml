@@ -15,8 +15,12 @@ jobs:
     - uses: actions/checkout@v2
 
     # 遠端部署
-    - name: CD
+    - name: CD to Target folder
       run:
         cd ~/code/docker-sample
+    - name: Pull source
+      run:
         git pull https://github.com/w110056005/docker-sample.git
+    - name: CD
+      run:
         docker-compose up --build -d
