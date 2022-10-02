@@ -13,15 +13,16 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
-
     # 遠端部署
     - name: stop nginx container
       run: 
         docker container stop $(docker container ls -q --filter name=flask-api)
     - name: stop flask container
+      if: always()
       run:
         docker container stop $(docker container ls -q --filter name=nginx-flask)
     - name: prune containers
+      if: always()
       run:
         docker container prune -f
     - name: route to code folder
