@@ -9,7 +9,7 @@ on:
 
 # 執行一項或多項任務
 jobs: 
-  Stop old Containers:
+  Stop-Containers:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
@@ -27,8 +27,9 @@ jobs:
         docker container prune -f
   CD:
     runs-on: self-hosted
-    needs: Stop old Containers
+    needs: Stop-Containers
     if: always()
+    steps:
     - name: route to code folder
       run:
         cd ~/code
