@@ -9,7 +9,8 @@ services:
   nginx:
     build: ./nginx
     container_name: nginx_flask
+    # restart: always
     ports:
-      - 8000:80
+      - "8000:8000"
     depends_on:
       - flask
