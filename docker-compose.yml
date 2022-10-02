@@ -8,7 +8,7 @@ services:
     - 8000
   nginx:
     build: ./nginx
-    container_name: nginx_flask
+    container_name: nginx-flask
     # restart: always
     ports:
       - "8000:8000"
