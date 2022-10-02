@@ -5,8 +5,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 app.config['SWAGGER'] = {
-    "title": "Sample API",
-    "description": "Sample API",
+    "title": "Flask API",
+    "description": "SWAGGER API",
     "version": "1.0.0",
     "termsOfService": "",
     "hide_top_bar": True
@@ -27,7 +27,7 @@ swagger_template = {
     },
 }
 
-Swagger(app, swagger_config, template=swagger_template)
+Swagger(app, template=swagger_template)
 
 @auth.verify_password
 def verify_password(username, password):
