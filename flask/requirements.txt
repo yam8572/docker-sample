@@ -2,4 +2,5 @@ Flask
 Flask-HTTPAuth
 Flasgger
 uWSGI
+Werkzeug
 
