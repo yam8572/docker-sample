@@ -1,5 +1,7 @@
 from flask import Flask, request, send_file
 from flasgger import Swagger
+from flask_httpauth import HTTPBasicAuth
+
 app = Flask(__name__)
 app.config['SWAGGER'] = {
     "title": "Sample API",
@@ -8,9 +10,32 @@ app.config['SWAGGER'] = {
     "termsOfService": "",
     "hide_top_bar": True
 }
-Swagger(app)
+# Auth Setting
+auth = HTTPBasicAuth()
+user = 'awinlab'
+pw = 'awinlab'
+users = {
+    user: generate_password_hash(pw)
+}
+
+swagger_template = {
+    'securityDefinitions': {
+        'basicAuth': {
+            'type': 'basic'
+        }
+    },
+}
+
+Swagger(app, swagger_config, template=swagger_template)
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in users:
+        return check_password_hash(users.get(username), password)
+    return False
 
 @app.route('/hello-world', methods=['GET'])
+@auth.login_required
 def hello_world():
   """
     Return Hello World 
