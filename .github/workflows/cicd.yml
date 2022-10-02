@@ -38,9 +38,9 @@ jobs:
     - name: route to project
       run:
         cd ./docker-sample
-    - name: docker compose up
+    - name: docker compose up 
       run:
-        docker-compose up -d
+        docker-compose up -d --build
     - name: route back
       run:
         cd .. 
