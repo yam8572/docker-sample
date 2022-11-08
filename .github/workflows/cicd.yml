@@ -35,7 +35,7 @@ jobs:
         cd ~/code
     - name: clone source code
       run:
-        git clone https://github.com/w110056005/docker-sample.git
+        git clone https://github.com/yam8572/docker-sample.git
     - name: route to project
       run:
         cd ./docker-sample
